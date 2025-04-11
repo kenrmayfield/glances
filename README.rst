@@ -100,7 +100,6 @@ Dependencies:
 - ``defusedxml`` (in order to monkey patch xmlrpc)
 - ``packaging`` (for the version comparison)
 - ``windows-curses`` (Windows Curses implementation) [Windows-only]
-- ``shtab`` (Shell autocompletion) [All but Windows]
 
 Optional dependencies:
 
@@ -293,16 +292,30 @@ higher, the path to the statics file is configurable (see ``issue2612``).
 FreeBSD
 -------
 
-On FreeBSD, package name depends on the Python version.
+Glances Binary Package Versions and Python Versions( pyXY-glances) per System Architecture for FreeBSD as of: 08 Mar 2025 04:05:21
 
-Check for Python version:
+.. image:: https://i.postimg.cc/DzRrj8T1/glancespackageversionforfreebsd.png
+Identify the Python Version Installed:
 
 .. code-block:: console
 
-     # python --version
+     # Check for Python Version 2:
+
+     # python -V
+
+     # Alternative Command: python --version
+
+.. code-block:: console
+
+     # Check for Python Version 3:
+
+     # python3 -V
+
+     # Alternative Command: python3 --version
 
 
-Install the Glances package:
+
+To install the Glances Binary Package:
 
 .. code-block:: console
 
@@ -315,7 +328,7 @@ Where X and Y are the Major and Minor Values of your Python System.
     # Example for Python 3.11.3: pkg install py311-glances
 
 **NOTE:** Check Glances Binary Package Version for your System Architecture.
-You must have the Correct Python Version Installed which corresponds to the Glances Binary Package.
+You must have the Correct Python Version Installed which corresponds to the Glances Binary Package. 
 
 To install Glances from Ports:
 
@@ -327,7 +340,9 @@ To install Glances from Ports:
 macOS
 -----
 
-MacOS users can install Glances using ``Homebrew`` or ``MacPorts``.
+If you do not want to use the glancesautoinstall script, follow this procedure.
+
+macOS users can install Glances using ``Homebrew`` or ``MacPorts``.
 
 Homebrew
 ````````
@@ -404,20 +419,6 @@ Ansible
 -------
 
 A Glances ``Ansible`` role is available: https://galaxy.ansible.com/zaxos/glances-ansible-role/
-
-Shell tab completion
-====================
-
-Glances 4.3.2 and higher includes shell tab autocompletion thanks to the --print-completion option.
-
-For example, on a Linux operating system with Bash shell:
-
-.. code-block:: console
-
-    $ glances --print-completion bash | sudo tee -a /etc/bash_completion.d/glances
-    $ source /etc/bash_completion.d/glances
-
-Following shells are supported: bash, zsh and tcsh.
 
 Usage
 =====
@@ -529,6 +530,7 @@ License
 Glances is distributed under the LGPL version 3 license. See ``COPYING`` for more details.
 
 .. _psutil: https://github.com/giampaolo/psutil
+.. _glancesautoinstall: https://github.com/nicolargo/glancesautoinstall
 .. _Python: https://www.python.org/getit/
 .. _Termux: https://play.google.com/store/apps/details?id=com.termux
 .. _readthedocs: https://glances.readthedocs.io/
@@ -537,4 +539,7 @@ Glances is distributed under the LGPL version 3 license. See ``COPYING`` for mor
 .. _package: https://repology.org/project/glances/versions
 .. _sponsors: https://github.com/sponsors/nicolargo
 .. _wishlist: https://www.amazon.fr/hz/wishlist/ls/BWAAQKWFR3FI?ref_=wl_share
+.. _issue2021: https://github.com/nicolargo/glances/issues/2021
+.. _issue2021comment: https://github.com/nicolargo/glances/issues/2021#issuecomment-1197831157
+.. _issue2612: https://github.com/nicolargo/glances/issues/2612
 .. _Docker: https://github.com/nicolargo/glances/blob/develop/docs/docker.rst
